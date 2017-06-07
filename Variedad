@@ -1,0 +1,16 @@
+SQL para extraer terceros vs cliente en SIEP
+
+select st.naturalezajuridica, st.numero, st.razonsocial, st.nombre1 || st.apellido1 as nombre, mctc.descripcion, mcc.codigonumerodeposito from m_cli_cliente mcc
+inner join s_tercero st on (mcc.s_terceroid=st.id)
+inner join m_cli_tipo_cliente mctc on (mcc.m_cli_tipo_clienteid=mctc.id)
+
+
+SQL para reporte de Conceptos de transaccion con numero de deposito asignado.
+
+Select mct.id, mct.nombre,  mct.s_terceroid, st.numero, st.razonsocial, mca.codigoauxiliar, mca.nombre
+--mcd.nombredeposito,
+from m_cli_concepto_transaccion mct
+--inner join m_cli_deposito mcd on ( mct.m_cli_depositoid=mcd.id)
+inner join s_tercero st on ( mct.s_terceroid=st.id)
+inner join m_con_auxiliar mca on ( mct.m_con_auxiliarid2=mca.id)
+order by 1
