@@ -14,3 +14,11 @@ from m_cli_concepto_transaccion mct
 inner join s_tercero st on ( mct.s_terceroid=st.id)
 inner join m_con_auxiliar mca on ( mct.m_con_auxiliarid2=mca.id)
 order by 1
+
+
+SQL  para extraer deposito con cliente asignado
+
+select st.numero, st.razonsocial, mcd.numerodeposito, mcd.fechaapertura, mcd.estadodeposito
+from m_cli_deposito mcd
+inner join m_cli_cliente mcc on (mcd.m_cli_clienteid = mcc.id)
+inner join s_tercero st on (mcc.s_terceroid = st.id)
