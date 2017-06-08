@@ -22,3 +22,12 @@ select st.numero, st.razonsocial, mcd.numerodeposito, mcd.fechaapertura, mcd.est
 from m_cli_deposito mcd
 inner join m_cli_cliente mcc on (mcd.m_cli_clienteid = mcc.id)
 inner join s_tercero st on (mcc.s_terceroid = st.id)
+
+
+SQL  para extraer deposito con linea y cliente 
+
+select st.numero, st.razonsocial, mcsc.codigo, mcd.numerodeposito, mcd.fechaapertura, mcd.estadodeposito
+from m_cli_deposito mcd
+inner join m_cli_cliente mcc on (mcd.m_cli_clienteid = mcc.id)
+inner join s_tercero st on (mcc.s_terceroid = st.id)
+inner join m_cli_servicio_captacion mcsc on (mcd.m_cli_servicio_captacionid = mcsc.id)
