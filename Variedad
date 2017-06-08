@@ -31,3 +31,10 @@ from m_cli_deposito mcd
 inner join m_cli_cliente mcc on (mcd.m_cli_clienteid = mcc.id)
 inner join s_tercero st on (mcc.s_terceroid = st.id)
 inner join m_cli_servicio_captacion mcsc on (mcd.m_cli_servicio_captacionid = mcsc.id)
+
+Select mct.id, mct.nombre,  mct.s_terceroid, st.numero, st.razonsocial, mca.codigoauxiliar, mca.nombre, mcd.nombredeposito
+from m_cli_concepto_transaccion mct
+inner join m_cli_deposito mcd on ( mct.m_cli_depositoid=mcd.id)
+inner join s_tercero st on ( mct.s_terceroid=st.id)
+inner join m_con_auxiliar mca on ( mct.m_con_auxiliarid2=mca.id)
+order by 1
