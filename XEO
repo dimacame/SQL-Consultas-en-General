@@ -1,0 +1,10 @@
+SQL XEO - Clientes
+
+select codigo_cli, apellido_cli, nombre_cli, apellido1_cli, apellido2_cli from clientes
+order by 1
+
+
+SQL XEO - Cuentas
+
+select lin_cta, num_cta, cli_cta, fec_cta, est_cta, descrip_larga from cuentas
+order by 1
