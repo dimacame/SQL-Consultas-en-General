@@ -38,3 +38,12 @@ inner join m_cli_deposito mcd on ( mct.m_cli_depositoid=mcd.id)
 inner join s_tercero st on ( mct.s_terceroid=st.id)
 inner join m_con_auxiliar mca on ( mct.m_con_auxiliarid2=mca.id)
 order by 1
+
+
+SQL Extraer comprobante de transacion con concepto AB
+select mct.fecha, mct.consecutivo, mct.descripcion, st.razonsocial, st.nombre1||' '||st.apellido1 tercero,  mcca.numerocredito, mcdt.valor
+from m_cli_transacion mct
+inner join m_cli_detalle_transaccion mcdt on (mcdt.m_cli_transacionid = mct.id and mcdt.m_cli_concepto_transaccionid = 1)
+inner join s_tercero st on (mct.s_terceroid = st.id)
+left join m_cli_credito_aprobado mcca on (mcdt.m_cli_credito_aprobadoid = mcca.id)
+where mct.fecha > '2017-07-01'
