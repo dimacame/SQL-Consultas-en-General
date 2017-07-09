@@ -5,6 +5,13 @@ inner join s_tercero st on (mcc.s_terceroid=st.id)
 inner join m_cli_tipo_cliente mctc on (mcc.m_cli_tipo_clienteid=mctc.id)
 
 
+select st.naturalezajuridica, st.numero, st.razonsocial, st.nombre1, st.nombre1 || st.apellido1 as nombre, mctc.descripcion, mcc.codigonumerodeposito from m_cli_cliente mcc
+inner join s_tercero st on (mcc.s_terceroid=st.id)
+inner join m_cli_tipo_cliente mctc on (mcc.m_cli_tipo_clienteid=mctc.id)
+order by 2
+
+
+
 SQL para reporte de Conceptos de transaccion con numero de deposito asignado.
 
 Select mct.id, mct.nombre,  mct.s_terceroid, st.numero, st.razonsocial, mca.codigoauxiliar, mca.nombre
