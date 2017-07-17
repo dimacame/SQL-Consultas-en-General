@@ -8,3 +8,8 @@ SQL XEO - Cuentas
 
 select lin_cta, num_cta, cli_cta, fec_cta, est_cta, descrip_larga from cuentas
 order by 1
+
+SQL XEO - Entidades
+
+select cod_ent, nom_ent, ciu_ubi, dir_ubi, tel_ent from entidades
+order by 2
