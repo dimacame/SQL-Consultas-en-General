@@ -13,3 +13,11 @@ SQL XEO - Entidades
 
 select cod_ent, nom_ent, ciu_ubi, dir_ubi, tel_ent from entidades
 order by 2
+
+SQL XEO - Traer cliente - entidades
+
+select cf_bent_aso.asociado, clientes.nombre_cli|| ' ' ||clientes.apellido_cli|| ' ' ||clientes.apellido1_cli|| ' ' ||clientes.apellido2_cli, cf_bent_aso.entidad, entidades.nom_ent
+from cf_bent_aso
+inner join clientes on (cf_bent_aso.asociado = clientes.codigo_cli)
+inner join entidades on (cf_bent_aso.entidad = entidades.cod_ent)
+order by 3
